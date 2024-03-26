@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from django.shortcuts import reverse 
 
 User = get_user_model()
 
@@ -38,6 +39,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
     
+    #get the absolute url of a product
+    def get_absolute_url(self):
+        return reverse("cart:product-detail", kwargs={'slug': self.slug})
     
     
 class OrderItem(models.Model):
