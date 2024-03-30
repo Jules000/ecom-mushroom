@@ -45,16 +45,19 @@ class Product(models.Model):
     
     
 class OrderItem(models.Model):
+    order = models.ForeignKey(
+        "Order", related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     
     def __str__(self):
-        return f"{self.quantity} x {self.product.tiltle}"
+        return f"{self.quantity} x {self.product.title}"
     
     
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    start_date = models.DateTimeField(auto_now_add=False)
+    user = models.ForeignKey(
+        User, blank=True, null=True, on_delete=models.CASCADE)
+    start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField(blank=True , null=True)
     ordered = models.BooleanField(default=False)
     billing_address = models.ForeignKey(
