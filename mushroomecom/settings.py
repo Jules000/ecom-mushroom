@@ -28,7 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'crispy_forms',
+    'cart',
+    'core',
 ]
+
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+NOTIFY_EMAIL = env('NOTIFY_EMAIL')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,6 +101,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -111,8 +120,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATICFILES_ROOT = [os.path.join(BASE_DIR, "static_root")]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if DEBUG is False:
     SESSION_COOKIE_SECURE = True
@@ -133,10 +143,10 @@ if DEBUG is False:
     DATABASES = {
         'default':{
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': ''
+            'NAME': 'chamcsat_champignonducameroun',
+            'USER': 'chamcsat_Jules',
+            'PASSWORD': 't~TESdyJ4Mnufvj',
+            'HOST': 'localhost',
+            'PORT': '5432'
         }
     }
