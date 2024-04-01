@@ -143,10 +143,10 @@ if DEBUG is False:
     DATABASES = {
         'default':{
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': ''
+            'NAME': 'chamcsat_champignonducameroun',
+            'USER': 'chamcsat_Jules',
+            'PASSWORD': 't~TESdyJ4Mnufvj',
+            'HOST': 'localhost',
+            'PORT': '5432'
         }
     }
